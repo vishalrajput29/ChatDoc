@@ -1,0 +1,27 @@
+# Core Language & AI Libraries
+langchain
+openai
+faiss-cpu
+sentence-transformers
+pytesseract
+Pillow
+PyMuPDF
+langchain_groq
+# Embedding & Vector Search
+huggingface-hub
+qdrant-client
+os
+# Web UI
+streamlit
+
+# Backend Framework (if needed later)
+fastapi
+uvicorn
+langchain-community
+# Environment & Utilities
+python-dotenv
+requests
+tesseract 
+# Optional for PDF OCR (manual installation may be needed)
+# sudo apt-get install tesseract-ocr  # For Linux
+# choco install tesseract             # For Windows (via Chocolatey)
