@@ -10,7 +10,6 @@ langchain_groq
 # Embedding & Vector Search
 huggingface-hub
 qdrant-client
-os
 # Web UI
 streamlit
 
