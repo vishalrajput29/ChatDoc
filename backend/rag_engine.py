@@ -22,7 +22,19 @@ def create_vectorstore(documents):
 
 def query_vectorstore(vectorstore, query):
     docs = vectorstore.similarity_search(query, k=5)
+    
+    results = []
+    for doc in docs:
+        result = {
+            "Document ID": doc.metadata.get("source", "Unknown"),
+            "Extracted Answer": doc.page_content[:200] + "..." if len(doc.page_content) > 200 else doc.page_content,
+            "Citation": doc.metadata.get("location", "N/A")  # optional metadata for page/para if added
+        }
+        results.append(result)
+
     context = "\n\n".join([doc.page_content for doc in docs])
-    sources = [doc.metadata["source"] for doc in docs]
     prompt = f"Context:\n{context}\n\nQuestion: {query}\n\nAnswer in detail with source references."
-    return llm.invoke(prompt), sources
+    answer = llm.invoke(prompt)
+    
+    return answer, results
+
